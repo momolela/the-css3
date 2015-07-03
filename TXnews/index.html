@@ -1,0 +1,100 @@
+<!doctype html>
+ <head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>孙肇将学习javaweb-布局学习</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{font-size:12px;font-family:"微软雅黑";}
+			a{text-decoration:none;color:#222222;}
+			a:hover{color:red;text-decoration:underline;}
+			.body{width:600px;background:#FFF;margin:50px;}
+			.body .hd{background:url("images/titlebg1.png");}
+			.body .hd h2{width:270px;height:29px;background:url("images/title.png");}
+			.body .one{padding:20px 0;background:url("images/titlebg1.png") bottom repeat-X;}
+			.body .one .num{float:left;}
+			.body .one .nrtxt{float:left;margin-left:26px;width:300px;}/*浮动属性最大背景色被覆盖hd高度为0所以要清除浮动引起的问题*/
+			.body .one .nrtxt .nr_all{width:310px;height:50px;}
+			.body .one .nrtxt .nr_all .d_txt{width:195px;height:44px;float:left;}
+			.body .one .nrtxt .nr_all h3{float:left;width:68px;font-size:16px;font-weight:bold;color:#8C8C8C;}
+			.body .one .nrtxt .nr_all .d_txt a{margin:0px 2px;padding:2px 3px;}
+			.body .one .nrtxt .nr_all a:hover{background:#D81B00 none repeat scroll 0% 0%;color:#fff;text-decoration:none;}
+			.body .one .nrtxt .nr_all .log{font-size:13px;}
+			.body .one .nrtxt i{width:300px;height:0;border-top:1px solid #e6e6e6;display:block;margin:30px auto;}
+			.body .one h2{font-size:20px;font-weight:500;line-height:30px;}
+			.body .one h2 span{color:red;}
+			.body .one h2 span a{color:red;}
+			.body .one p{color:#b3b3b3;line-height:22px;}
+			.body .one p span {color:#8193AE;}/*所有样式都有优先级*/
+			.body .one p a:hover span{color:red;}
+			.clear{clear:both;}
+			
+		</style>
+
+ </head>
+ <body>
+	<div class="body">
+		<div class="hd">
+			<h2></h2>
+		</div>
+		<div class="bd">
+			<div class="one">
+				<div class="num"><img src="images/num1.png"/></div>
+				<div class="nrtxt">
+					<h2><span><a href="http://fashion.qq.com/zhuanti2012/topicthree/mrbk_list.htm">[美容百科]</a></span><br/><a href="http://fashion.qq.com/zt2015/mrbk/index81.htm">不懂材质还敢自称面膜控？</a></h2>
+					<p>60%的女生忽略的面膜材质，却是帮助面膜营养吸收的重要一环！...<a href="#"><span>[详细]</span></a></p>
+					<p>标签:<a href="#"><span>[风格]</span></a></p>
+					<i></i>
+					<div class="nr_all">
+							<h3>特别策划</h3>
+							<div class="d_txt">
+							<a class="log" href="#">做范儿</a>|<a class="log" href="#">入流</a>|<a class="log" href="#">最佳穿衣榜</a><br>
+							<a class="log" href="#">美丽奇迹</a>|<a class="log" href="#">兼容百科</a>|<a class="log" href="#">美肌榜样</a>
+							</div>
+					</div>
+				</div>
+				<div class="clear"><!--用于清除float引起的问题--></div>
+			</div>
+			<div class="one">
+				<div class="num"><img src="images/num2.png"/></div>
+				<div class="nrtxt">
+					<h2><a href="#">拖地长裙穿出优雅女神范儿</a></h2>
+					<p>长裙穿起来优雅又时髦，可是身高不够？身材比例不行？那就来看看穿长裙时尚建议和造型技巧吧。</p>
+					<p>标签:<a href="#"><span>服饰潮流</span></a></p>
+				</div>
+				<div class="clear"><!--用于清除float引起的问题--></div>
+			</div>
+			<div class="one">
+				<div class="num"><img src="images/num3.png"/></div>
+				<div class="nrtxt">
+					<h2><a href="#">LOB头配抢眼耳环 不潮不要钱</a></h2>
+					<p>今年夏天什么发型最流行？答案是LOB头。但加上一对时髦美艳的耳环才是LOB头的正确打开方式！</p>
+					<p>标签:<a href="#"><span>服饰潮流</span></a></p>
+				</div>
+				<div class="clear"><!--用于清除float引起的问题--></div>
+			</div>
+			<div class="one">
+				<div class="num"><img src="images/num4.png"/></div>
+				<div class="nrtxt">
+					<h2><a href="#">不会画裸妆的女人是没有未来的！</a></h2>
+					<p>裸妆并不是真的素面朝天，而是让你抛弃妖娆的大红唇和浓重的烟熏眼妆，做一个安静的美少女！</p>
+					<p>标签:<a href="#"><span>服饰潮流</span></a></p>
+				</div>
+				<div class="clear"><!--用于清除float引起的问题--></div>
+			</div>
+			<div class="one">
+				<div class="num"><img src="images/num5.png"/></div>
+				<div class="nrtxt">
+					<h2><a href="#">防晒霜拆封后隔年再用会失效吗？</a></h2>
+					<p>今天小编来和大家聊聊，你的防晒霜到了第二年真的就连乳液都不如了吗？</p>
+					<p>标签:<a href="#"><span>美容美体</span></a></p>
+				</div>
+				<div class="clear"><!--用于清除float引起的问题--></div>
+			</div>
+			<div class="clear"><!--用于清除float引起的问题--></div>
+		</div>
+	</div>
+ </body>
+</html>

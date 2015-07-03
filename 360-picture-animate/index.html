@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+		<title>360旋转效果</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+
+
+		<style type="text/css">
+			*{margin:0;padding:0;}/*先规定总体的样式  下面自己可以自己定义*/
+			body{font-size:12px;font-family:微软雅黑;color:#336666;}/*整体布局*/
+			.nav{width:100%;height:700px;background:url("images/bg1.jpg");}
+			.nav .n_all{width:1198px;height:300px;margin:0 auto;padding-top:60px;}/*margin:0 auto;垂直水平距离 border:5px solid black; 如果边框没显示说明浮动遮盖了可以用另外用一个div设置claer:both;来显示*/
+			.nav .n_all dl{width:270px;text-align:center;/*有些不兼容文字会居中*/color:#fff;margin:0 auto;float:left;padding-left:20px;}/*margin:0 auto;可以使得图片居中显示*/
+			.nav .n_all dl dt{width:220px;height:220px;margin:0 auto;}/*相当于下面的onetwo。。。的整体布局*/
+			.nav .n_all dl .n_title{font-size:16px;font-weight:bold;margin:20px 0 10px 0;}
+			.nav .n_all dl .n_title i{width:50px;height:0;border-top:1px solid #fff;display:block;margin:5px auto;}/*5p设置为线和文字的距离*/
+			.nav .n_all dl .one{background:url("images/1.jpg") no-repeat;}
+			.nav .n_all dl .two{background:url("images/2.jpg") no-repeat;}
+			.nav .n_all dl .three{background:url("images/3.jpg") no-repeat;}
+			.nav .n_all dl .four{background:url("images/4.jpg") no-repeat;}
+		</style>
+		<!--导入css3的文件所有特效 相当于css版dejquery-->
+		<link href="css/animated.css" rel="stylesheet" type="text/css"/>
+	</head>
+<body>
+
+	<div class="nav">
+		<div class="n_all">
+			<dl>
+				<dt class="one"></dt><!--自定义列表项-->
+				<dd class="n_title">
+					1.起步
+					<i></i><!--斜线标签，是一个行列与元素   要变为块级元素才能设置宽高-->
+				</dd><!--列表项1-->
+				<dd>好的起步代表未来</dd><!--列表项2-->
+			</dl>
+			<dl>
+				<dt class="two"></dt><!--自定义列表项-->
+				<dd class="n_title">
+					2.兴趣
+					<i></i><!--斜线标签，是一个行列与元素   要变为块级元素才能设置宽高-->
+				</dd><!--列表项1-->
+				<dd>兴趣是最好的老师</dd><!--列表项2-->
+			</dl>
+			<dl>
+				<dt class="three"></dt><!--自定义列表项-->
+				<dd class="n_title">
+					2.学习
+					<i></i><!--斜线标签，是一个行列与元素   要变为块级元素才能设置宽高-->
+				</dd><!--列表项1-->
+				<dd>好好学习天天向上</dd><!--列表项2-->
+			</dl>
+			<dl>
+				<dt class="four"></dt><!--自定义列表项-->
+				<dd class="n_title">
+					2.发展
+					<i></i><!--斜线标签，是一个行列与元素   要变为块级元素才能设置宽高-->
+				</dd><!--列表项1-->
+				<dd>发展人生的新高度</dd><!--列表项2-->
+			</dl>
+		</div>
+	</div>
+
+<!--引入jquery官方类库  放在body结束之前  用于优化-->
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		
+		//往图片添加一个样式  需要导入css文件在css中的animated   加载时摇晃
+		$(".nav dt").addClass("animated shake");
+		$(".nav dt").hover(function()
+		{
+
+			//toggleClass判断样式是否已经存在  存在就删除  不存在就添加
+			//flip也是css中的样式  toggleClass函数时jquery中的
+			$(this).toggleClass("shake").addClass("flip");
+		},function()
+		{
+			$(this).toggleClass("flip").addClass("bounceupdown");
+		});
+	});
+</script>
+</body>
+</html>
