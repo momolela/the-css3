@@ -1,0 +1,64 @@
+<!doctype html>
+ <head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>孙肇将学习javaweb-商品展示</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#box{width:873px;height:250px;margin:20px auto;position:relative;border:1px solid #ddd;}
+			#box .left{float:left;width:260px;height:250px;text-align:center;color:#f22754;font-size:15px;font-family:"微软雅黑";}
+			#box .right{float:right;width:610px;height:250px;}
+			#box .left .mar{margin:10px auto;display:block;}/*img是行内元素*/
+			#box .left span{font-size:38px;}
+			#box .left a{text-decoration:none;color:#f22754;}
+			#box .line{width:873px;height:25px;background:#fff;line-height:a25px;position:absolute;left:0;bottom:0;filter:alpha(opacity=80);-moz-opcity:0.8;opacity:0.8;}
+			#box .line .name{float:left;width:260px;height:25px;text-align:center;}
+			#box .line .time{float:left;width:510px;height:25px;text-align:center;}
+			#box .line .banner{float:left;width:100px;height:25px;text-align:center;background:url("images/jt1.jpg") no-repeat 85px 5px;}
+			.bg{color:#fff;}
+		</style>
+ </head>
+
+ <body>
+  <div id="box">
+	<div class="left">
+		<img src="images/logo.jpg" width="209px" class="mar"/>
+		<img src="images/bg.jpg" class="mar">
+		<a href="http://www.sina.com.cn"><span>1.3</span>折起<br/>07月2日-12月31日</a>
+	</div>
+
+	<div class="right">
+		<img src="images/pic.jpg"/>
+	</div>
+
+	<div style="clear:both;"></div><!--清除浮动-->
+	<div class="line">
+		<p class="name">丽晶-时尚个性饰品</p>
+		<p class="time">剩余：7天23小时6分15秒</p>
+		<p class="banner">品牌故事</p>
+	</div>
+  </div>
+  
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript">
+	$("#box").mouseover(function(){
+		$(this).css("border","1px solid #9d231e");
+		$(this).find(".line").css("background","#9d231e");
+		$(this).find(".line p").addClass("bg");
+		$(this).wrap("<a href='http://www.baidu.com'></a>");
+		$(this).find(".line p").css("color","#fff");
+	}).mouseout(function(){
+		$(this).css("border","1px solid #ddd");
+		$(this).find(".line").css("background","#fff");
+		$(this).find(".line p").removeClass("bg");
+		$(this).find(".line p").css("color","#000");
+
+	});
+  </script>
+  
+ </body>
+
+</html>

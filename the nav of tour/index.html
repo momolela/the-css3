@@ -1,0 +1,81 @@
+<!doctype html>
+ <head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>孙肇将学习javaweb-</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			#top{width:100%;height:149px;background:url("images/headbg.jpg");}
+			.head{width:100%;height:100px;background:#ffccff;}
+			.nav{width:1000px;height:49px;margin:0 auto/*自动*/;}
+			.nav ul li{width:100px;height:49px;float:left;list-style:none;font-size:14px;font-family:"微软雅黑";text-align:center;/*水平居中*/line-height:49px;position:relative;}
+			.nav ul li a{text-decoration:none;color:#fff;width:100px;height:49px;display:block;}
+			.nav ul li a:hover{background:#cc3333;}
+			.bg{background:#cc3333;}
+			.nav ul li .menu{width:270px;background:#fff;border:2px solid red;border-top:0px;filter:alpha(opacity=90);-moz-opcity:0.9;opacity:0.9;position:absolute;left:0px;top:49px;display:none;padding:10px 10px 10px 10px;}/*上面li设置了高度但这里的菜单menu已经超出了高度如果把上面li的高度去掉这这里menu的高度和会占掉下面的地方 所以用相对和绝对定位来处理使他悬浮*/
+			.nav ul li p{border-bottom:1px dotted red;text-align:left;line-height:35px;}
+			.nav ul li p a{display:inline;color:#666;}
+			.nav ul li p a:hover{background:none;color:#cc3300;}
+			.nav ul li p span{font-weight:bold;}
+
+		</style>
+ </head>
+
+ <body>
+  
+	<div id="top">
+		<div class="head"></div>
+		<div class="nav">
+			<ul><!--ul为无序列表-->
+				<li><a href="#" class="mainnav">出境跟团游</a>
+					<div class="menu">
+						<p><span>台湾港澳</span>: <a href="http://www.baidu.com">台湾</a> | <a href="#">香港</a> | <a href="#">澳门</a><p>
+						<p><span>东南亚</span>: <a href="#">越南</a> | <a href="#">泰国</a> | <a>马来西亚</a> | <a href="#">新加坡</a> | <a href="#">菲律宾</a> | <a href="#">印度尼西亚</a> | <a href="#">老挝</a> | <a href="#">柬埔寨</a> | <a href="#">缅甸</a></p>
+					</div>
+				</li>
+				<li><a href="#" class="mainnav">出境自由行</a>
+					<div class="menu">
+						<p><span>台湾港澳</span>: <a href="#">台湾</a> | <a href="#">香港</a> | <a href="#">澳门</a><p>
+						<p><span>东南亚</span>: <a href="#">越南</a> | <a href="#">泰国</a> | <a>马来西亚</a> | <a href="#">新加坡</a> | <a href="#">菲律宾</a> | <a href="#">印度尼西亚</a> | <a href="#">老挝</a> | <a href="#">柬埔寨</a> | <a href="#">缅甸</a></p>
+					</div>
+				</li>
+				<li><a href="#" class="mainnav">国内跟团游</a>
+					<div class="menu">
+						<p><span>台湾港澳</span>: <a href="#">台湾</a> | <a href="#">香港</a> | <a href="#">澳门</a><p>
+						<p><span>东南亚</span>: <a href="#">越南</a> | <a href="#">泰国</a> | <a>马来西亚</a> | <a href="#">新加坡</a> | <a href="#">菲律宾</a> | <a href="#">印度尼西亚</a> | <a href="#">老挝</a> | <a href="#">柬埔寨</a> | <a href="#">缅甸</a></p>
+					</div>
+				</li>
+				<li><a href="#" class="mainnav">国内自由行</a>
+					<div class="menu">
+						<p><span>台湾港澳</span>: <a href="#">台湾</a> | <a href="#">香港</a> | <a href="#">澳门</a><p>
+						<p><span>东南亚</span>: <a href="#">越南</a> | <a href="#">泰国</a> | <a>马来西亚</a> | <a href="#">新加坡</a> | <a href="#">菲律宾</a> | <a href="#">印度尼西亚</a> | <a href="#">老挝</a> | <a href="#">柬埔寨</a> | <a href="#">缅甸</a></p>
+					</div>
+				</li>
+				<li><a href="#" class="mainnav">湖南周边游</a>
+					<div class="menu">
+						<p><span>台湾港澳</span>: <a href="#">台湾</a> | <a href="#">香港</a> | <a href="#">澳门</a><p>
+						<p><span>东南亚</span>: <a href="#">越南</a> | <a href="#">泰国</a> | <a>马来西亚</a> | <a href="#">新加坡</a> | <a href="#">菲律宾</a> | <a href="#">印度尼西亚</a> | <a href="#">老挝</a> | <a href="#">柬埔寨</a> | <a href="#">缅甸</a></p>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div style="height:300px;background:url('images/adv2.jpg');">
+	</div>
+  
+  <script type="text/javascript" src="js/jquery.js"></script>
+  <script type="text/javascript">
+	$(".nav ul li").mouseover(function(){
+		$(this).find(".menu").show();
+		$(this).find("a.mainnav").addClass("bg");
+	}).mouseout(function(){
+		$(this).find(".menu").hide();
+		$(this).find("a.mainnav").removeClass("bg");
+	});
+  </script>
+ </body>
+
+</html>
