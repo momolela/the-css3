@@ -1,0 +1,108 @@
+<!doctype=html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=gbk">
+		<title>九宫格系统</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{background:url("images/bg.png");}
+			#Course{width:783px;height:453px;border:3px solid #fff;margin:70px auto;background:rgba(0,0,0,0.2);}
+			#Course ul li{width:260px;height:150px;float:left;list-style:none;border-right:1px solid #fff;border-bottom:1px solid #fff;position:relative;}
+			#Course ul li img.default{position:relative;z-index:20;}/*z-index是悠闲权重值*/
+			#Course ul li a{width:100%;height:100%;position:absolute;top:0px;left:0px;background:rgba(0,0,0,0.7);text-align:center;text-decoration:none/*无下划线*/;line-height:160px;font-size:20px;color:#fff;z-index:10;font-weight:bold;font-family:"微软雅黑";background:rgba(0,0,0,0.7);}/*rage是透明度问题*/
+			#Course ul li img{position:absolute;top:0px;left:0px;}/*和上面的相对定位*/
+		</style>
+
+	</head>
+
+<body>
+	<div id="Course">
+		<ul>
+			<li>
+				<img src="images/1.jpg" class="default"/>
+				<a href="#">1--标签</a>
+				<img src="images/1bg1.jpg" class="right"/>
+				<img src="images/1bg2.jpg" class="bottom"/>
+			</li>
+			<li>
+				<img src="images/2.jpg" class="default"/>
+				<a href="#">2--标签</a>
+				<img src="images/2bg1.jpg" class="left"/>
+				<img src="images/2bg2.jpg" class="right"/>
+				<img src="images/2bg3.jpg" class="bottom"/>
+			</li>
+			<li>
+				<img src="images/3.jpg" class="default"/>
+				<a href="#">3--标签</a>
+				<img src="images/3bg1.jpg" class="left"/>
+				<img src="images/3bg2.jpg" class="bottom"/>
+			</li>
+			<li>
+				<img src="images/4.jpg" class="default"/>
+				<a href="#">4--标签</a>
+				<img src="images/4bg1.jpg" class="top"/>
+				<img src="images/4bg2.jpg" class="right"/>
+				<img src="images/4bg3.jpg" class="bottom"/>
+
+			</li>
+			<li>
+				<img src="images/5.jpg" class="default"/>
+				<a href="#">5--标签</a>
+				<img src="images/5bg1.jpg" class="top"/>
+				<img src="images/5bg2.jpg" class="right"/>
+				<img src="images/5bg3.jpg" class="bottom"/>
+				<img src="images/5bg4.jpg" class="left"/>
+			</li>
+			<li>
+				<img src="images/6.jpg" class="default"/>
+				<a href="#">6--标签</a>
+				<img src="images/6bg1.jpg" class="top"/>
+				<img src="images/6bg2.jpg" class="left"/>
+				<img src="images/6bg3.jpg" class="bottom"/>
+			</li>
+			<li>
+				<img src="images/7.jpg" class="default"/>
+				<a href="#">7--标签</a>
+				<img src="images/7bg1.jpg" class="top"/>
+				<img src="images/7bg2.jpg" class="right"/>
+			</li>
+			<li>
+				<img src="images/8.jpg" class="default"/>
+				<a href="#">8--标签</a>
+				<img src="images/8bg1.jpg" class="left"/>
+				<img src="images/8bg2.jpg" class="top"/>
+				<img src="images/8bg3.jpg" class="right"/>
+			</li>
+			<li>
+				<img src="images/9.jpg" class="default"/>
+				<a href="#">9--标签</a>
+				<img src="images/9bg1.jpg" class="top"/>
+				<img src="images/9bg2.jpg" class="left"/>
+			</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$("#Course ul li").hover(function()
+		{
+			$("a",this).css("z-index","30");
+			$(this).css("z-index","28");
+			$("img.top",this).stop().animate({top:"-150px"},300);
+			$("img.right",this).stop().animate({left:"260px"},300);
+			$("img.bottom",this).stop().animate({top:"150px"},300);
+			$("img.left",this).stop().animate({left:"-260px"},300);
+		},function()
+		{
+			$("a",this).css("z-index","10");
+			$(this).css("z-index","20");
+			$("img",this).stop().animate({left:"0px",top:"0px"},300);
+			$(this).siblings().find("img").css("z-index","0");
+			$(this).siblings().find("img.default").css("z-index","20");
+		});
+	</script>
+</body>
+
+</html>
