@@ -1,0 +1,277 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+		<title>桌面级系统-momolela</title>
+		<!--当前页面的三要素用于SEO优化-->
+		<meta name="Keywords" content="关键词,关键词">
+		<meta name="descriptior" content=""><!--用于seo优化80个字的描绘信息-->
+		<!--<meta http-equiv="reflash" content="30"><!--30秒后自动刷新-->
+		<!--<meta http-equiv="reflash" content="5;url=index.html"><!--5秒后自动跳转到index.html-->
+
+		<style type="text/css">
+			*{margin:0;padding:0;}
+			body{background:url("images/bg.jpg") repeat;font-size:12px;font-family:"微软雅黑";z-index:1;}
+			#menu{width:200px;height:250px;background:#fff;box-shadow:0px 0px 10px #fff;border-radius:3px;display:none;position:absolute;left:200px;top:300px;z-index:9999;}
+			#menu ul li{width:200px;height:35px;border-bottom:1px solid #ddd;list-style:none;font-size:14px;color:#666;font-family:"微软雅黑";line-height:35px;text-indent:25px;cursor:pointer;}/*text-indent首行缩进*/
+			#menu ul li img{margin-right:5px;}
+			#menu ul li:hover{background:#009999;color:#fff;}
+			#bg{width:730px;height:350px;background-color:rgba(0,0,0,0.5);position:absolute;left:350px;top:150px;display:none;z-index:3;}
+			#bg .title{width:730px;height:49px;background:#242424;cursor:move;}
+			#bg .title p{font-size:20px;font-family:"微软雅黑";color:#fff;float:left;line-height:49px;margin-left:10px;}
+			#bg .title a{width:26px;height:26px;text-decoration:none;color:#fff;float:right;display:block;border:1px solid #000;border-radius:24px;font-size:30px;font-family:"楷体";font-weight:bold;text-align:center;margin:11px 10px 0 0;background:#000;line-height:20px;}
+			#bg ul{padding-left:26px;}
+			#bg ul li{list-style:none;color:#fff;width:200px;height:125px;float:left;margin:8px;border:5px solid #fff;}
+			#folder{width:60px;height:570px;position:absolute;top:0;left:0;z-index:2;}
+			#folder ul li{list-style:none;width:50px;height:65px;margin:10px 5px 0 5px;font-size:12px;text-align:center;line-height:10px;color:#fff;}
+			#folderName{width:350px;height:200px;background:#fff;position:absolute;left:500px;top:150px;box-shadow:5px/*右*/ 5px/*上*/ 10px #000;display:none;z-index:3;}
+			#folderName .title1{width:350px;height:30px;background:#242424;}
+			#folderName .title1 p{font-size:20px;font-family:"微软雅黑";color:#fff;float:left;line-height:30px;margin-left:10px;}
+			#folderName .title1 a{width:26px;height:26px;text-decoration:none;color:#fff;float:right;display:block;border:1px solid #000;border-radius:24px;font-size:30px;font-family:"楷体";font-weight:bold;text-align:center;margin:1px 10px 0 0;background:#000;line-height:20px;}
+			#folderName .p{font-size:20px; margin:22px 0 0 10px;color:#ccc;}
+			#folderName .f_name{width:300px;height:30px;border:1px solid #ccc;margin:22px auto;font-size:17px;padding:5px 0 0 5px;}
+			#folderName .btn{width:82px;height:30px;background:#333;display:block;text-align:center;line-height:30px;text-decoration:none;font-size:14px;font-weight:bold;border-radius:3px;color:#fff;float:right;margin:0px 20px 0 0px;}
+			#folderName .btn:hover{background:#000;}
+			.tz_box{position:relative;}
+			.tz_box .b_list{width:294px;height:310px;position:absolute;left:300px;top:200px;z-index:1;}
+			.tz_box .b_list .b_content{width:256px;height:220px;position:absolute;top:60px;left:16px;outline:none;font-size:20px;line-height:30px;}
+			.tz_box .b_list .b_timer{position:absolute;bottom:15px;right:10px;font-size:14px;}
+		</style>
+		<link type="text/css" rel="stylesheet" href="css/animate.css" />
+	</head>
+
+	<body>
+		<!--menu start-->
+		<div id="menu">
+			<ul>
+				<li class="folder"><img src="images/tag1.gif" align="absmiddle"/>新建文件夹</li>
+				<li class="del_folder"><img src="images/tag5.gif" align="absmiddle"/>删除所有文件夹</li>
+				<li class="note"><img src="images/tag2.gif" align="absmiddle"/>新建便签</li>
+				<li class="del_note"><img src="images/tag3.gif" align="absmiddle"/>删除便签</li>
+				<li><img src="images/tag4.gif" align="absmiddle"/>刷新</li>
+				<li class="skin"><img src="images/tag6.gif" align="absmiddle"/>更换背景</li>
+				<li><img src="images/tag7.gif" align="absmiddle"/>注销</li>
+			</ul>
+		</div>
+		<!--end menu-->
+
+		<!--bg start-->
+		<div id="bg">
+			<div class="title" id="td">
+				<p>桌面背景墙</p>
+				<a href="#" class="b_close">x</a>
+			</div>
+			<ul>
+				<li><img src="images/bg.jpg" width="200" height="125"/></li>
+				<li><img src="images/2.jpg" width="200" height="125"/></li>
+				<li><img src="images/3.jpg" width="200" height="125"/></li>
+				<li><img src="images/4.jpg" width="200" height="125"/></li>
+				<li><img src="images/5.jpg" width="200" height="125"/></li>
+				<li><img src="images/6.jpg" width="200" height="125"/></li>
+			</ul>
+		</div>
+		<!--end bg-->
+
+		<!--folder start-->
+		<div id="folder">
+			<ul class="f_box">
+			</ul>
+		</div>
+		<!--end folder-->
+		
+		<!--folderName start-->
+		<div id="folderName">
+			<div class="title1">
+				<p>文件夹命名</p>
+				<a href="#" class="f_close">x</a>
+			</div>
+			<p class="p">请输入文件夹名称：</p>
+			<div class="f_name" contentEditable="true">
+			</div>
+			<a href="#" class="btn">确定</a>
+		</div>
+		<!--end folderName-->
+
+		<!--note start-->
+		<p class="text"></p>
+		<div class="tz_box"></div>
+		<!--end note-->
+	
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript">
+			//隐藏电脑自带的右键功能
+			document.oncontextmenu=function(){return false;}
+			//判断按下鼠标
+			$(document).mousedown(function(e){
+				//alert("按下了鼠标");
+				var key=e.which;//左1右3
+				if(key==3)
+				{
+					$("#menu").show();
+					//获取鼠标的坐标
+					var x=e.clientX;
+					var y=e.clientY;
+					//alert(x+"-"+y);
+					$("#menu").show().css({left:x,top:y});
+					//$(".text").html("X: "+x+" Y: "+y);
+				}
+			});
+			//点击其他地方再消失
+			$(document).click(function(){
+				$("#menu").hide();
+			});
+
+
+			//点击出现换肤
+			$(".skin").click(function(){
+				$("#bg").show();
+			});
+			
+			//点击新建文件夹出现命名
+			$(".folder").click(function(){
+				$("#folderName").show();
+			});
+
+			$(".note").click(function(){
+				// 获取当前鼠标的右键的位置
+				var left = $("#menu").offset().left;
+				var top = $("#menu").offset().top;
+				// 创建1到3的随机数
+				var random = Math.floor(Math.random() * 3) + 1;
+			
+				$(".tz_box").append("<div class='b_list animated bounceIn' style='left:"+left+"px;top:"+top+"px;'>"+
+				"			<img src='images/"+random+".png' alt='便签' width='294' height='310'/>"+
+				"			<div class='b_content' contenteditable='true'></div>"+
+				"			<p class='b_timer'><span>3</span>秒后自动保存</p>"+
+				"		</div>");
+				auto_timer();
+			});
+
+			$(".del_note").click(function(){
+				$(".b_list").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+				// 清空缓存
+				localStorage.removeItem("markContent");
+			});
+
+
+			$(".del_folder").click(function(){
+				$(".folder1").removeClass("animated rollIn").addClass("animated bounceOut").fadeOut(1000);
+				// 清空缓存
+				localStorage.removeItem("folder1");
+			});
+
+
+			// 自动定时保存
+			var timer = null;
+			function auto_timer(){
+				clearInterval(timer);
+				var count = 3;
+				timer = setInterval(function(){
+					if(count <= 0){
+						count = 3;
+						// 保存内容
+						localStorage.setItem("markContent",$(".tz_box").html());
+						localStorage.setItem("f_box",$(".f_box").html());
+					}
+					$(".b_timer").find("span").text(count);
+					count--;
+				},1000);
+			}
+
+			//点击图片换肤
+			$("#bg ul li").click(function(){
+				//获取图片路径
+				var bSrc=$(this).find("img").attr("src");
+				//replace("s_","")替换函数
+				$("body").css("background","url("+bSrc+") repeat")
+			});
+
+
+			//点击创建文件夹
+			$(".btn").click(function(){
+				var content=$(".f_name").text();
+					if(content=="")
+					{
+						$(".f_name").focus();
+						return;
+					}
+				var html=$("<li class='folder1 animated bounceIn'>"+
+							"<img src='images/folder.png'/>"+
+							""+$(".f_name").html()+""+
+							"</li>");
+					$(".f_box").append(html);
+				$("#folderName").hide();
+			});
+
+			
+			//点击关闭按钮
+			$(".b_close").click(function(){
+				$("#bg").hide();
+			});
+			$(".f_close").click(function(){
+				$("#folderName").hide();
+			});
+
+			// 页面加载时就运行
+			$(function(){
+				// 读取本地缓存信息
+				var markContent = localStorage.getItem("markContent");
+				var folder1 = localStorage.getItem("f_box");
+				if(markContent){
+					$(".tz_box").html(markContent);
+					$(".f_box").html(folder1);
+					auto_timer();
+				}
+
+			});
+		</script>
+
+
+		<!--拖拽功能-->
+		<script type="text/javascript">
+			window.onload=function(){
+				init(document.getElementById("td"));
+			};
+
+			var l=0,t=0,x=0,y=0;
+			var isOver=false;
+			var zindex=3;
+			function init(titleDom)
+			{
+				var thisDom=titleDom;
+				var parentDom=thisDom.parentNode;
+				titleDom.onmousedown=function(event)
+				{
+					var e=event||window.event;
+					x=e.clientX;
+					y=e.clientY;
+
+					l=parseInt(parentDom.offsetLeft);
+					t=parseInt(parentDom.offsetTop);
+					isOver=true;
+					zindex++;
+					parentDom.style.zIndex=zindex;
+					document.onmousemove=function(event)
+					{
+						if(isOver)
+						{
+							var e=event||window.event;
+							var newLeft=l+e.clientX-x;
+							var newTop=t+e.clientY-y;
+							parentDom.style.left=newLeft+"px";
+							parentDom.style.top=newTop+"px";
+						}
+					};
+					document.onmouseup=function(event)
+					{
+						if(isOver)
+						{
+							isOver=false;
+						}
+					};
+				};
+			};
+		</script>
+	</body>
+
+</html>
