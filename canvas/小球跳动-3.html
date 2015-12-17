@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="utf-8"/>
+		<meta name="Author" content="潘剑"/>
+		<meta name="Keywords" content=""/>
+		<meta name="Description" content=""/>
+		<title>Ball</title>
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<style type="text/css">
+			#mycanvas{border:3px solid blue;background:#aaa;margin:50px 200px;}
+			input{color:#000;}
+		</style>
+	</head>
+
+	<body>
+		<h1>Ball</h1>
+		<canvas id="mycanvas" width="960" height="300"></canvas>
+		<input type="button" value="添加小球" onclick="ball.addBall()" />
+		<fieldset>
+			<legend>代码</legend>
+			<pre>
+			</pre>
+		</fieldset>
+		<script type="text/javascript">
+			var ball = (function(){
+
+				//拿到画布
+				var canvas = document.getElementById("mycanvas");
+				var context = canvas.getContext("2d");
+
+				//设置球的放置位置
+				var balls = [];
+
+				//设置点击添加球的方法
+				function addBall(){
+					parameter();
+					var ball = new Ball(x,y,radius,dx,dy,color);
+					balls.push(ball);
+					/*
+						这里不再需要drawBall();
+						这里加了会使drawBall的运行速度加快;
+						原因是再代用一次 dx,dy不是原来的值，以增加很多;
+					*/
+				};
+
+				//坐标半径的设置
+				function parameter(){
+					radius = Math.floor(Math.random()*20)+10;
+					x = Math.random()*canvas.width;
+					if(x-radius < 0){
+						x += radius;
+					}else if(x+radius > canvas.width){
+						x -= radius; 
+					}
+					
+					y = Math.random()*canvas.height;
+					if(y-radius < 0){
+						y += radius;
+					}else if(y+radius > canvas.height){
+						y -= radius;
+					}
+
+					dx = Math.ceil(Math.random()*2);
+					dy = Math.ceil(Math.random()*2);
+
+					color = randomColor();
+
+					return {
+						x : x,
+						y : y,
+						radius : radius,
+						dx : dx,
+						dy : dy,
+						color : color,
+					};
+				};
+
+				//设置球类
+				function Ball(x,y,radius,dx,dy,color){
+					this.x = x;
+					this.y = y;
+					this.radius = radius;
+					this.dx = dx;
+					this.dy = dy;
+					this.color = color
+				};
+
+				
+
+				//把球画出来
+				function drawBall(){
+					//清理画布
+					context.clearRect(0,0,canvas.width,canvas.height);
+					var len = balls.length;
+					for(var i=0;i<len;i++){
+						var ball = balls[i];
+						ball.x += ball.dx; 
+						ball.y += ball.dy; 
+						ball.dx *= 0.998;
+						if ((ball.y) < canvas.height) ball.dy += 0.22;
+						if((ball.x+ball.radius) > canvas.width || (ball.x - ball.radius) < 0){
+							ball.dx = -ball.dx;
+						}
+						if((ball.y+ball.radius) > canvas.height || (ball.y - ball.radius) < 0){
+							ball.dy = -ball.dy * 0.96;
+						};
+						context.beginPath();
+						context.arc(ball.x,ball.y,ball.radius,0,2*Math.PI);
+						context.fillStyle = balls[i]["color"];
+						context.fill();
+						context.stroke();
+					}
+					
+					//递归
+					setTimeout(drawBall,10);
+				};
+
+				//设置随即颜色
+				function randomColor(){
+					r = Math.floor(Math.random()*256);
+					g = Math.floor(Math.random()*256);
+					b = Math.floor(Math.random()*256);
+					a = Math.random();
+					return "rgba("+r+","+g+","+b+","+a+")";
+				}
+
+				//点击一次，无法调用drawBall，但是必须执行，所以这里要调用一次
+				setTimeout(drawBall,20);
+
+				//一定要有返回值
+				return {
+					addBall : addBall
+				}
+			})();
+			
+		</script>
+	</body>
+</html>
+context.fillStyle=randomColor();
