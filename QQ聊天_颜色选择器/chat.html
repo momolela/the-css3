@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>QQ聊天-颜色选择器-清心老师</title>
+
+<style type="text/css">
+*{margin:0px; padding:0px;}
+#box{width:602px; height:140px; margin:200px auto 0px;  }
+#chat{width:580px;height:100px;border:1px solid #666; border-radius:5px;padding:0px 10px;}
+#box img.but{float:right; margin-top:5px;}
+
+#sel_Color{width:280px;height:270px; position:absolute; left:40%; top:250px;
+			border:1px solid #ddd; background:#FBFBFB; z-index:8888; display:none;}
+#sel_Color h3{height:30px;font-size:14px; font-weight:100; text-align:center;line-height:30px;
+				cursor:move;/*鼠标移动指标*/}
+#sel_Color h3 img.close{float:right; cursor:pointer;}
+
+#sel_Color ul{width:260px; height:230px;margin:0px auto; border:1px solid #D6D6D6; background:#F0F0F0;}
+#sel_Color ul li{list-style-type:none;width:24px;height:24px;border:1px solid #666; float:left;
+				margin:5px;}
+
+#windowLock{width:100%;height:100%; background:red; opacity:0;position:fixed; top:0px; left:0px;
+			display:none;}
+</style>
+
+ </head>
+ <body>
+  
+<!--聊天窗口开始-->
+<div id="box">
+	<div id="chat" contenteditable="true"></div>
+	<img src="images/but.png" class="but"/>
+</div>
+<!--聊天窗口结束-->
+
+<!--颜色选择器开始-->
+<div id="sel_Color">
+	<h3><img src="images/close.png" class="close"/> 颜色选择器 </h3>
+	<ul>
+		<li style="background-color:#ff8080;"></li>
+		<li style="background-color:#ffff80;"></li>
+		<li style="background-color:#80ff80;"></li>
+		<li style="background-color:#80ffff;"></li>
+		<li style="background-color:#0080ff;"></li>
+		<li style="background-color:#ff80c0;"></li>
+		<li style="background-color:#ff80ff;"></li>
+		<li style="background-color:#ff0000;"></li>
+		<li style="background-color:#ffff00;"></li>
+		<li style="background-color:#80ff00;"></li>
+		<li style="background-color:#00ffff;"></li>
+		<li style="background-color:#0080c0;"></li>
+		<li style="background-color:#8080c0;"></li>
+		<li style="background-color:#ff00ff;"></li>
+		<li style="background-color:#804040;"></li>
+		<li style="background-color:#ff8040;"></li>
+		<li style="background-color:#00ff00;"></li>
+		<li style="background-color:#008080;"></li>
+		<li style="background-color:#004080;"></li>
+		<li style="background-color:#8080ff;"></li>
+		<li style="background-color:#800040;"></li>
+		<li style="background-color:#ff0080;"></li>
+		<li style="background-color:#800000;"></li>
+		<li style="background-color:#ff8000;"></li>
+		<li style="background-color:#008000;"></li>
+		<li style="background-color:#008040;"></li>
+		<li style="background-color:#0000ff;"></li>
+		<li style="background-color:#0000a0;"></li>
+		<li style="background-color:#800080;"></li>
+		<li style="background-color:#8000ff;"></li>
+		<li style="background-color:#400000;"></li>
+		<li style="background-color:#804000;"></li>
+		<li style="background-color:#004000;"></li>
+		<li style="background-color:#004040;"></li>
+		<li style="background-color:#000080;"></li>
+		<li style="background-color:#000040;"></li>
+		<li style="background-color:#400040;"></li>
+		<li style="background-color:#000000;"></li>
+		<li style="background-color:#808000;"></li>
+		<li style="background-color:#808040;"></li>
+		<li style="background-color:#808080;"></li>
+		<li style="background-color:#408080;"></li>
+	</ul>
+</div>
+<!--颜色选择器结束-->
+
+<!--锁屏图层-->
+<div id="windowLock"></div>
+
+
+<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript">
+	//找到小图片点击，弹图颜色选择器
+	$("#box img.but").click(function(){
+		$("#sel_Color").show(); //显示颜色选择器  obj.style.display="block"
+		$("#windowLock").show(); //显示锁屏
+	});
+
+	//点击关闭按扭时
+	$("#sel_Color h3 img.close").click(function(){
+		$("#sel_Color").hide(); //隐藏颜色选择器 obj.style.display="none"
+		$("#windowLock").hide(); //隐藏锁屏
+	});
+
+	//点击颜色时，文字颜色发生变化
+	$("#sel_Color ul li").click(function(){
+		//获取点击的颜色
+		var _color=$(this).css("background-color");   // 取值 this.style.backgroundColor
+		$("#chat").css("color",_color); //赋值 
+		//$("body").css("background-color",_color);
+	});
+
+
+	//拖动颜色选择器
+	$("#sel_Color h3").mousedown(function(e){
+		var x=e.clientX; //X 水平坐标
+		var y=e.clientY; //y 上面坐标
+
+		var Left=$("#sel_Color").offset().left; //颜色选择器与浏览器窗口左边距离
+		var Top=$("#sel_Color").offset().top; //颜色选择器与浏览器窗口上面距离
+
+		var width=x-Left; //鼠标按下去与颜色选择器左边距离
+		var height=y-Top; //鼠标按下去与颜色选择器上边距离
+		
+		//移动
+		$(document).mousemove(function(e){
+			var ox=e.clientX;
+			var oy=e.clientY;
+
+			var oleft=ox-width; //最终得到选择器与浏览器窗口左边距离
+			var otop=oy-height; //最终得到选择器与浏览器窗口上边距离
+
+			var maxLeft=$(window).width()-$("#sel_Color").width()-2;
+			var maxtop=$(window).height()-$("#sel_Color").height()-2
+
+			if(oleft<0){oleft=0;}  //当他小于0时，强制变为0  左边界
+			if(oleft>maxLeft){oleft=maxLeft;}
+
+			if(otop<0){otop=0;}
+			if(otop>maxtop){otop=martop;}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+			$("#sel_Color").css({"left":oleft,"top":otop}); //赋值给颜色选择器
+		});
+		
+		//抬起时
+		$(document).mouseup(function(){
+			$(document).unbind("mousemove");
+			$(document).unbind("mouseup");
+
+		});
+
+			return false;  //阻止默认事件
+	});
+
+
+</script>
+
+ </body>
+</html>
